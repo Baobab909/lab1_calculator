@@ -14,7 +14,5 @@ def main() -> None:
 
     print(result)
 
-    print(SAMPLE_CONSTANT)
-
 if __name__ == "__main__":
     main()
