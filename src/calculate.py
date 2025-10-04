@@ -73,7 +73,7 @@ def calc(expr: str) -> None:
                 formatted = formatted.rstrip('0').rstrip('.') if '.' in formatted else formatted
                 print(f"Результат: {formatted}")
         else:
-            print(f"Ошибка: в стеке осталось {len(stack)} значений: {stack}")
+            print("Ошибка")
 
     except Exception as e:
         print(f"Ошибка: {e}")
