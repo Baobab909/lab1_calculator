@@ -3,7 +3,7 @@ from src.operators import UnarOperators
 from src.tokenize import isOp
 from src.tokenize import isNumber
 from src.constants import op_priory
-
+from src.constants import op_right
 
 def infix_to_postfix(expr: str) -> list:
     """
@@ -25,7 +25,7 @@ def infix_to_postfix(expr: str) -> list:
     # обработка унарных операторов
     tokens = UnarOperators(tokens)
 
-    # алгоритм сортировочной станции Дейкстры
+    # алгоритм сортировочной станции Дейкстры с учетом ассоциативности
     for token in tokens:
         if isNumber(token):
             output.append(token)
@@ -42,8 +42,11 @@ def infix_to_postfix(expr: str) -> list:
             stack.pop()  # удаляем '('
 
         elif isOp(token):
-            # выталкиваем операторы с более высоким или равным приоритетом
-            while (stack and stack[-1] != '(' and op_priory.get(stack[-1], 0) >= op_priory.get(token, 0)):
+            # Для правоассоциативных операторов выталкиваем только операторы с большим приоритетом
+            # Для левоассоциативных - операторы с большим или равным приоритетом
+            while (stack and stack[-1] != '(' and ((op_right.get(token, False) and
+                op_priory.get(stack[-1], 0) > op_priory.get(token, 0)) or (not op_right.get(token, False) and
+                op_priory.get(stack[-1], 0) >= op_priory.get(token, 0)))):
                 output.append(stack.pop())
             stack.append(token)
 

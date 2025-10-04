@@ -17,7 +17,7 @@ class TestCalculator:
         assert calc('0 ** 0')
         assert calc('45 ** 2') == 2025
         assert calc('4 ** 0.5') == 2
-        #assert calc('5 ** 2 ** 3') == 390625
+        assert calc('4 ** 3 ** 2') == 262144
 
     def test_unary(self):
         """
