@@ -54,7 +54,6 @@ def calc(expr: str) -> None:
             print("Пустое выражение")
             return
 
-
         # преобразуем инфиксную запись в постфиксную
         postfix_tokens = infix_to_postfix(expr)
 

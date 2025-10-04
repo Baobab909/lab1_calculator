@@ -1,7 +1,6 @@
 import sys
 from src.calculate import calc
 
-
 def main() -> None:
     """
     Обязательнная составляющая программ, которые сдаются. Является точкой входа в приложение
