@@ -54,6 +54,7 @@ class TestCalculator:
         assert calc("342.5 + 13.5") == 356
         assert calc("4.5 * 2") == 9
         assert calc("15.5 / 2") == 7.75
+        assert calc("6.7 - 0.7") == 6
 
 
 class TestError:
